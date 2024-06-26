@@ -3,7 +3,9 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js'
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -11,12 +13,32 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-      static: './dist',
+      static: {
+        directory: path.join(__dirname, 'src'),
+      },
+      hot: true,
+      open: true,
+  },
+  module: {
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.(woff2|woff|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+        }
+      ],
   },
   plugins: [
       new HTMLWebpackPlugin({
             title: 'Rest o Rant',
-            template: 'src/index.html',
+            template: './src/index.html',
       })
   ],
   optimization: {
