@@ -17,7 +17,6 @@ module.exports = {
         directory: path.join(__dirname, 'src'),
       },
       hot: true,
-      open: true,
   },
   module: {
       rules: [
