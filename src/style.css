@@ -1,6 +1,7 @@
 @font-face {
       font-family: Gentle;
-      src: url(fonts/Gentle.woff2);
+      src: url(fonts/Gentle.woff2) format('woff2');
+      font-style: normal;
 }
 
 * {
