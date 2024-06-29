@@ -11,12 +11,6 @@
       list-style: none;
 }
 
-/* body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-} */
-
 /** HEADER **/
 
 #logo {
@@ -52,11 +46,6 @@ nav > button {
       transition: all 0.3s;
 }
 
-#burger-menu {
-      width: 48px;
-      height: 48px;
-}
-
 header > div > a {
       display: flex;
       justify-content: center;
@@ -89,23 +78,26 @@ nav > button:hover, nav > button:active {
 
 /** CONTENT **/
 
-/** A. HEADLINE **/
+/** A. HERO **/
 
 #donut-bg {
       width: 100%;
-      height: 700px;
+      height: 696px;
       object-fit: cover;
       filter: brightness(60%);
       position: relative;
+} 
+
+.hero {
+      height: 696px;
 }
 
-.headline-contents {
-      padding: 48px;
+.hero-contents {
+      padding: 48px 36px;
       background: rgba(255, 255, 255, 0.5);
       border-radius: 16px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(5.6px);
-      -webkit-backdrop-filter: blur(5.6px);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -115,23 +107,24 @@ nav > button:hover, nav > button:active {
       justify-content: center;
       align-items: center;
       text-align: center;
+      -webkit-backdrop-filter: blur(5.6px);
 }
 
-.headline-contents > p:first-child {
+.hero-contents > p:first-child {
       font-family: 'Gentle', system-ui, sans-serif;
       font-weight: 700;
-      font-size: clamp(3rem, 5vw, 5rem);
+      font-size: clamp(1.5rem, 5vw, 5rem);
       line-height: 90px;
       letter-spacing: 4px;
 }
 
-.headline-contents > p:last-of-type {
+.hero-contents > p:last-of-type {
       font-family: 'Gentle', system-ui, sans-serif;
       font-size: 1.3rem;
       margin: 0 74px;
 }
 
-.headline-contents > button {
+.hero-contents > button {
       font-family: system-ui, sans-serif;
       font-weight: 700;
       font-size: 1rem;
@@ -148,40 +141,44 @@ nav > button:hover, nav > button:active {
       overflow: hidden;
 }
 
-.headline-contents > button:hover {
+.hero-contents > button:hover {
       background: linear-gradient(321deg, 
                                 rgba(226,0,250,1) 50%, 
                                 rgba(229,124,4,1) 50%);
 }
 
-/** B. SALES **/
+/** B. MENU **/
 
-.sales > p {
+.menu > p {
       font-size: 48px;
       font-weight: 700;
       font-family: 'Gentle', system-ui, sans-serif;
+      letter-spacing: 2px;
       text-align: center;
 }
 
-.sales > .donut-cont {
+.menu > .donut-cont {
       display: grid;
       grid-template: repeat(2, 260px) / repeat(3, 260px);
       gap: 50px;
 }
 
-.sales > .donut-cont > div {
+.menu > .donut-cont > div {
       position: relative;
       cursor: pointer;
+      overflow: hidden;
+      border-radius: 36px;
 }
 
-.sales > .donut-cont > div > img {
+.menu > .donut-cont > div > img {
       width: 100%;
       height: 100%;
       border-radius: 36px;
       object-fit: cover;
+      transition: all 0.3s ease-in-out;
 }
 
-.sales > .donut-cont > div > p {
+.menu > .donut-cont > div > p {
       color: #fff;
       font-family: 'Gentle', system-ui, sans-serif;
       font-size: 2rem;
@@ -198,13 +195,17 @@ nav > button:hover, nav > button:active {
       -webkit-text-stroke-color: #000;
 }
 
-.sales {
+.menu {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 36px;
       margin: 36px 0;
+}
+
+.menu > .donut-cont > div > img:hover{
+      transform: scale(1.2);
 }
 
 /** FOOTER **/

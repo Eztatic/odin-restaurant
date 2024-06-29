@@ -1,3 +1,5 @@
 import './style.css';
+import backgroundImage from './images/hero-background.jpg';
 
-console.log("Start of Project");
+
+
