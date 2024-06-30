@@ -11,6 +11,13 @@
       list-style: none;
 }
 
+body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+}
+
 /** HEADER **/
 
 #logo {
@@ -149,7 +156,7 @@ nav > button:hover, nav > button:active {
 
 /** B. MENU **/
 
-.menu > p {
+.section-title {
       font-size: 48px;
       font-weight: 700;
       font-family: 'Gentle', system-ui, sans-serif;
@@ -206,6 +213,31 @@ nav > button:hover, nav > button:active {
 
 .menu > .donut-cont > div > img:hover{
       transform: scale(1.2);
+}
+
+/** LOCATION **/
+
+.location > iframe {
+      width: 600px;
+      height: 450px;
+      border: 0;
+      margin-top: 36px;
+}
+
+.location, .about-us {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 70px 0;
+}
+
+/** ABOUT US **/
+
+.about-us-cont > p {
+      max-width: 800px;
+      word-wrap: normal;
+      text-align: center;
 }
 
 /** FOOTER **/
