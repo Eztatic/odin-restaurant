@@ -2,31 +2,20 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const entries = ['index', 'home', 'menu', 'location', 'about-us'];
+
+const entry = entries.reduce((acc, name) => {
+  acc[name] = {
+    import: `./src/js/${name}.js`,
+    dependOn: 'shared',
+  }
+  return acc;
+}, {});
+entry.shared = './src/style.css';
+
 module.exports = {
   mode: 'development',
-  entry: {
-    index: {
-      import: './src/js/index.js',
-      dependOn: 'shared',
-    },
-    home: {
-      import: './src/js/home.js',
-      dependOn: 'shared',
-    },
-    menu: {
-      import: './src/js/menu.js',
-      dependOn: 'shared',
-    },
-    location: {
-      import: './src/js/location.js',
-      dependOn: 'shared',
-    },
-    aboutUs: {
-      import: './src/js/about-us.js',
-      dependOn: 'shared',
-    },
-    shared: './src/style.css'
-  },
+  entry: entry,
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -37,6 +26,7 @@ module.exports = {
       static: {
         directory: path.join(__dirname, 'dist'),
       },
+      hot: true,
   },
   module: {
       rules: [
@@ -61,8 +51,8 @@ module.exports = {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          {from: 'src/images', to: 'images/'},
-          {from: 'src/icons', to: 'icons'}
+          {from: 'src/icons', to: 'icons'},
+          {from: 'src/images/doughnaut-logo.png', to: __dirname + '/dist'}
         ],
       }),
   ],
@@ -70,3 +60,5 @@ module.exports = {
       runtimeChunk: 'single',
   }
 };
+
+console.log(__dirname);

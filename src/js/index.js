@@ -6,6 +6,8 @@ import about from './about-us.js';
 const mainContent = document.querySelector('#content');
 const nav = document.querySelector('header nav');
 
+mainContent.appendChild(home);
+
 nav.addEventListener('click', (e) => {
       let btn = e.target;
 
