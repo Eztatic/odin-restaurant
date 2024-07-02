@@ -27,5 +27,3 @@ nav.addEventListener('click', (e) => {
                   break;
       }
 })
-
-console.log("hello");
